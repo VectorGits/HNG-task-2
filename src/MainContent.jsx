@@ -1,6 +1,7 @@
 import React from 'react';
 import Breadcrumb from './Breadcrumb';
 import ProductList from './ProductList';
+import Pagination from './Pagination';
 
 const MainContent = () => {
   const breadcrumbItems = [
@@ -27,6 +28,24 @@ const MainContent = () => {
       name: 'Van Gogh loves U',
       price: 5500,
       image: '/path/to/van-gogh-loves-u.jpg'
+    },
+    {
+      id: 4,
+      name: 'Van Gogh',
+      price: 5500,
+      image: '/path/to/van-gogh.jpg'
+    },
+    {
+      id: 5,
+      name: 'Aesthetic Sun Flower',
+      price: 7000,
+      image: '/path/to/aesthetic-sun-flower.jpg'
+    },
+    {
+      id: 6,
+      name: 'Tired Nerd',
+      price: 4500,
+      image: '/path/to/tired-nerd.jpg'
     }
   ];
 
@@ -49,6 +68,7 @@ const MainContent = () => {
         </button>
       </div>
       <ProductList products={products} />
+      <Pagination />
     </main>
   );
 };
