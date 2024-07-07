@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CustomCheckbox from './CustomCheckbox';
+import Dropdown from './Dropdown';
 
 const Sidebar = () => {
   const [categories, setCategories] = useState({
@@ -78,51 +79,53 @@ const Sidebar = () => {
       <div className="filters">
         <h3 className="font-bold text-lg mb-2">Filter by:</h3>
         <div className="filter-section mb-4">
-          <h4 className="font-semibold mb-2">Type</h4>
-          <ul className="space-y-2">
-            <li>
-              <CustomCheckbox
-                label="Plain"
-                checked={categories.plain}
-                onChange={() => handleCheckboxChange('plain')}
-              />
-            </li>
-            <li>
-              <CustomCheckbox
-                label="With caption"
-                checked={categories.withCaption}
-                onChange={() => handleCheckboxChange('withCaption')}
-              />
-            </li>
-            <li>
-              <CustomCheckbox
-                label="With zip"
-                checked={categories.withZip}
-                onChange={() => handleCheckboxChange('withZip')}
-              />
-            </li>
-            <li>
-              <CustomCheckbox
-                label="Without zip"
-                checked={categories.withoutZip}
-                onChange={() => handleCheckboxChange('withoutZip')}
-              />
-            </li>
-          </ul>
+          <Dropdown title="type">
+            <ul className="space-y-2">
+              <li>
+                <CustomCheckbox
+                  label="Plain"
+                  checked={categories.plain}
+                  onChange={() => handleCheckboxChange('plain')}
+                />
+              </li>
+              <li>
+                <CustomCheckbox
+                  label="With caption"
+                  checked={categories.withCaption}
+                  onChange={() => handleCheckboxChange('withCaption')}
+                />
+              </li>
+              <li>
+                <CustomCheckbox
+                  label="With zip"
+                  checked={categories.withZip}
+                  onChange={() => handleCheckboxChange('withZip')}
+                />
+              </li>
+              <li>
+                <CustomCheckbox
+                  label="Without zip"
+                  checked={categories.withoutZip}
+                  onChange={() => handleCheckboxChange('withoutZip')}
+                />
+              </li>
+            </ul>
+          </Dropdown>
         </div>
-        <div className="filter-section">
-          <h4 className="font-semibold mb-2">Colour</h4>
-          <div className="grid grid-cols-4 gap-2">
-            <span className="w-6 h-6 bg-red-500 rounded-full"></span>
-            <span className="w-6 h-6 bg-blue-500 rounded-full"></span>
-            <span className="w-6 h-6 bg-green-500 rounded-full"></span>
-            <span className="w-6 h-6 bg-yellow-500 rounded-full"></span>
-            <span className="w-6 h-6 bg-purple-500 rounded-full"></span>
-            <span className="w-6 h-6 bg-pink-500 rounded-full"></span>
-            <span className="w-6 h-6 bg-gray-500 rounded-full"></span>
-            <span className="w-6 h-6 bg-black rounded-full"></span>
+        <Dropdown title="Colour">
+          <div className='grid grid-cols-4 gap-2'>
+          <span className="w-6 h-6 border border-black rounded-sm"></span>
+          <span className="w-6 h-6 border border-blue-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-green-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-red-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-pink-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-cyan-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-yellow-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-purple-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-orange-500 rounded-sm"></span>
+          <span className="w-6 h-6 border border-green-700 rounded-sm"></span>
           </div>
-        </div>
+        </Dropdown>
       </div>
     </aside>
   );
