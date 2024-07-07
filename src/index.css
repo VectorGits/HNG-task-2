@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input[type='checkbox']:checked {
+	background-image: url('../public/tick.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+  }
+  
