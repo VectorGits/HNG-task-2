@@ -2,8 +2,8 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center p-4 bg-white border-b">
-      <div className="logo flex items-center border-r">
+    <header className="flex justify-between items-center p-4 bg-white border-b w-full">
+      <div className="logo flex items-center border-r pr-4">
         <img src="/go-to-store-logo.png" alt="Go-To Store Logo" />
       </div>
       <div className="flex items-center bg-yellow-100 p-2 rounded-full shadow-md w-1/2">
