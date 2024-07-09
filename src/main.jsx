@@ -6,43 +6,38 @@ import Sidebar from './Sidebar.jsx';
 import MainContent from './MainContent.jsx';
 import Footer from './Footer.jsx';
 import Wishlist from './Wishlist.jsx';
+import Cart from './Cart.jsx';
 
-//After installing react router-dom, import the needed "functions" (Forgot what it's called :))
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+// After installing react router-dom, import the needed "functions"
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
+// A custom component to wrap the layout and conditionally render the sidebar
+function AppLayout() {
+  const location = useLocation();
+  const showSidebar = location.pathname !== '/wishlist' && location.pathname !== '/cart';
+
+  return (
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
+      <Header />
+      <div className="flex flex-grow overflow-x-hidden">
+        {showSidebar && <Sidebar />}
+        <div className="flex-grow overflow-x-hidden">
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
-    <div className="flex flex-col h-screen">
-    <Header />
-    <div className="flex flex-grow">
-      <Sidebar />
-      <Routes>
-        <Route path="/" element={<MainContent/>}></Route>
-        <Route path="/wishlist" element={<Wishlist/>}></Route>
-      </Routes>
-    </div>
-    <Footer />
-  </div>
+      <AppLayout />
     </Router>
-</React.StrictMode>
+  </React.StrictMode>
 );
-
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Footer from './Footer';
-// // import About from './About';
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// root.render(
-//   <React.StrictMode>
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Footer />} />
-//         {/* <Route path="/about" element={<About />} /> */}
-//       </Routes>
-//     </Router>
-//   </React.StrictMode>
-// );

@@ -25,7 +25,9 @@ const Header = () => {
           </Link>
         </button>
         <button className="bg-yellow-100 hover:bg-yellow-200 text-gray-600 font-bold py-1 px-3 rounded-full flex items-center">
+          <Link to="/cart">
           <span className="mr-1">Your Cart</span> <img src="/Cart-icon.png" alt="Cart-icon" className="h-5 w-5" />
+          </Link>
         </button>
       </div>
     </header>
